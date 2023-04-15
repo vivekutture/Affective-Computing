@@ -1,4 +1,4 @@
-soundfile,
-numpy,
-librosa,
-pyaudio,
+soundfile
+numpy
+librosa
+pyaudio
