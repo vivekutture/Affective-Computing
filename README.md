@@ -16,7 +16,7 @@ Group Members
 
 ---
 
-   1. Download ZIPs from given links and extract it.
+   1. Download ZIPs from given links and extract it
    
         a) [clean-speech](https://tinyurl.com/clean-speech)
    
