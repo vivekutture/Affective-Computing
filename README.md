@@ -12,7 +12,7 @@ Group Members
 
 ---
 
-### 📌📌📌 Before starting development or execution do MANDATORY steps
+### 📌📌📌 Before starting development or execution do MANDATORY steps.
 
 ---
 
