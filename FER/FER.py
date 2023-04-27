@@ -6,7 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-new_model=tf.keras.models.load_model('Final_model_95p07.h5')
+new_model=tf.keras.models.load_model('FinalTrainedModel.h5')
 
 import cv2
 path="haarcascade_frontalface_default.xml"
@@ -56,17 +56,17 @@ while True:
         font_scale=1.5
         font=cv2.FONT_HERSHEY_PLAIN
         
-        if (np.argmin(Predictions)==0):
+        if (np.argmax(Predictions)==0):
             status="Angry"
-        elif (np.argmin(Predictions)==1):
+        elif (np.argmax(Predictions)==1):
             status='Disgust'
-        elif (np.argmin(Predictions)==2):
+        elif (np.argmax(Predictions)==2):
             status='Fear'
-        elif (np.argmin(Predictions)==3):
+        elif (np.argmax(Predictions)==3):
             status='Happy'
-        elif (np.argmin(Predictions)==4):
+        elif (np.argmax(Predictions)==4):
             status='Sad'
-        elif (np.argmin(Predictions)==5):
+        elif (np.argmax(Predictions)==5):
             status='Surprise'
         else:
             status="Neutral"

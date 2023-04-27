@@ -9,6 +9,7 @@ import random
 
 Datadirectory = "train/" #training dataset
 Classes = ["0", "1", "2", "3", "4", "5", "6"] #List of folders
+img_size = 224
 
 # read all the images and convert them into array
 training_Data=[] # data array
@@ -25,10 +26,10 @@ def create_training_Data():
                 pass
 
 create_training_Data()
-
+print(len(training_Data))
 random.shuffle(training_Data) #data must be shuffled otherwise machine will learn particular sequence of images
 
-temp=np.array(training_Data)
+#temp=np.array(training_Data)
 
 x=[]
 y=[]
@@ -39,8 +40,9 @@ for features,label in training_Data:
 x=np.array(x).reshape(-1,img_size,img_size,3) #converting it to 4 dimension, -1 means end, 3 means channels
 
 #normalize the data
-#x= x/255.0; #max black means 255
-
+print("normalization started...")
+x= x/255.0; #max black means 255
+print("normalization done!")
 y=np.array(y)
 
 model=tf.keras.applications.MobileNetV2()
@@ -61,7 +63,7 @@ new_model = keras.Model(inputs=base_input, outputs=final_output)
 
 new_model.compile(loss="sparse_categorical_crossentropy", optimizer = "adam", metrics =["accuracy"])
 
-new_model.save('Final_model_95p07.h5')
+new_model.save('FinalTrainedModel.h5')
 
 #use trained model
 
