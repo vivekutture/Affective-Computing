@@ -23,6 +23,8 @@ Group Members
         b) [ravdess-data](https://tinyurl.com/ravdess-data)
    
         c) [data](https://tinyurl.com/speech-data)
+        
+        d) [train](https://tinyurl.com/46v7wfus)
    
    ---
    
@@ -33,6 +35,8 @@ Group Members
         b) Place ```ravdess-data``` folder inside ```Speech to Emotion/Speech Emotion Detetction``` folder
         
         c) Place ```data``` folder inside ```Speech to Emotion/Speech Emotion Recognition``` folder
+        
+        d) Place ```train``` folder inside ```FER``` folder 
         
    ---
    
