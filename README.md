@@ -34,7 +34,7 @@ Group Members
         
         b) Place ```ravdess-data``` folder inside ```Speech to Emotion/Speech Emotion Detetction``` folder
         
-        c) Place ```data``` folder inside ```Speech to Emotion/Speech Emotion Recognition``` folder
+        c) Place ```data``` folder inside ```Speech to Emotion/Speech Emotion Recognition``` and ```SER-NLP``` folder
         
         d) Place ```train``` folder inside ```FER``` folder 
         
