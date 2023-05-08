@@ -23,9 +23,7 @@ Group Members
         b) [ravdess-data](https://tinyurl.com/ravdess-data)
    
         c) [data](https://tinyurl.com/speech-data)
-        
-        d) [train](https://tinyurl.com/46v7wfus)
-   
+           
    ---
    
    2. Now, place extracted folders to there respective locatoions
@@ -35,9 +33,7 @@ Group Members
         b) Place ```ravdess-data``` folder inside ```Speech to Emotion/Speech Emotion Detetction``` folder
         
         c) Place ```data``` folder inside ```Speech to Emotion/Speech Emotion Recognition``` and ```SER-NLP``` folder
-        
-        d) Place ```train``` folder inside ```FER``` folder 
-        
+                
    ---
    
    
