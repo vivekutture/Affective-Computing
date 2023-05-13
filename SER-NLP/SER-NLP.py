@@ -39,7 +39,7 @@ with sr.Microphone() as source:
 
 if os.path.exists(filename) and os.path.exists("read.txt"):
   print("\nPrediciting Emotion...")
-  
+  NLP()
   # extract features and reshape it
   features = extract_feature(filename, mfcc=True, chroma=True, mel=True).reshape(1, -1)
   # predict
@@ -53,7 +53,7 @@ if os.path.exists(filename) and os.path.exists("read.txt"):
   print("Sentiment by SER : ", result.capitalize())
 
   print("\n")
-  NLP()
+
 else:
   print("Recod your Voice again!!!")
 
