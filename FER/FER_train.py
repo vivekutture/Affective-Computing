@@ -63,6 +63,8 @@ new_model = keras.Model(inputs=base_input, outputs=final_output)
 
 new_model.compile(loss="sparse_categorical_crossentropy", optimizer = "adam", metrics =["accuracy"])
 
+new_model.fit(x,y,epochs=10)
+
 new_model.save('FinalTrainedModel.h5')
 
 #use trained model
