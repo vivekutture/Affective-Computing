@@ -1,4 +1,2 @@
-soundfile
-numpy
 librosa
 pyaudio

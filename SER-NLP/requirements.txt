@@ -1,4 +1,6 @@
-soundfile
-numpy
+transformers
+torch
+tensorflow
+speechrecognition
 librosa
 pyaudio

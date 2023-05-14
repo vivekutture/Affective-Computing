@@ -14,12 +14,6 @@ model = pickle.load(open("SER-Trained-Model.model", "rb"))
 
 filename = "test.wav"
 
-if os.path.exists(filename):
-  os.remove(filename)
-  
-if os.path.exists("read.txt"):
-  os.remove("read.txt")
-
 # record the file (start talking)
 
 r = sr.Recognizer()
@@ -35,26 +29,21 @@ with sr.Microphone() as source:
     speechWAV.write(audio.get_wav_data())
     print("Voice Recorded Successfully!")
   except Exception as e:
-    print("Error : Voice not Recorde!!! ")
+    print("Error : Voice not Recorded!!! ")
 
-if os.path.exists(filename) and os.path.exists("read.txt"):
+
+try:
   print("\nPrediciting Emotion...")
-  NLP()
   # extract features and reshape it
   features = extract_feature(filename, mfcc=True, chroma=True, mel=True).reshape(1, -1)
   # predict
   result = model.predict(features)[0]
-  
-  print("Emotion Predicted Successfully!")
-
-  # show the result !
-
+  # show the result
   print("\n")
   print("Sentiment by SER : ", result.capitalize())
-
   print("\n")
-
-else:
-  print("Recod your Voice again!!!")
-
-print("\n")
+  NLP()
+  print("Emotion Predicted Successfully!")
+  print("\n")
+except Exception as e:
+    print("Error")
