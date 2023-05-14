@@ -7,4 +7,3 @@ def NLP():
     res = emotion_labels[0]['label']
     print('Emotion by NLP : ' + res)
 
-NLP()

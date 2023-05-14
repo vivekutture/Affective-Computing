@@ -3,6 +3,7 @@ import os
 from sklearn.model_selection import train_test_split # for splitting training and testing
 from sklearn.neural_network import MLPClassifier # multi-layer perceptron model
 from sklearn.metrics import accuracy_score # to measure how good we are
+
 from utils import load_data
 
 def trainModel():
@@ -49,6 +50,6 @@ def trainModel():
     # calculate the accuracy
     accuracy = accuracy_score(y_true=y_test, y_pred=y_pred)
 
-    print("Accuracy: {:.2f}%\n".format(accuracy*100))
+    print("Accuracy: {:.2f}%".format(accuracy*100))
 
     pickle.dump(model, open("SER-Trained-Model.model", "wb"))

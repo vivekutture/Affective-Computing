@@ -5,7 +5,19 @@ import glob
 import os
 from sklearn.model_selection import train_test_split # for splitting training and testing
 
+
 def extract_feature(file_name, **kwargs):
+    """
+    Extract feature from audio file `file_name`
+        Features supported:
+            - MFCC (mfcc)
+            - Chroma (chroma)
+            - MEL Spectrogram Frequency (mel)
+            - Contrast (contrast)
+            - Tonnetz (tonnetz)
+        e.g:
+        `features = extract_feature(path, mel=True, mfcc=True)`
+    """
     mfcc = kwargs.get("mfcc")
     chroma = kwargs.get("chroma")
     mel = kwargs.get("mel")
