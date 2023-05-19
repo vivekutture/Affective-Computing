@@ -5,6 +5,7 @@ from NLP import NLP
 from SER import trainModel
 from utils import extract_feature
 
+print('\n\n')
 # if model is not trained train the model
 if not os.path.exists("SER-Trained-Model.model"):
   trainModel()
@@ -13,12 +14,13 @@ if not os.path.exists("SER-Trained-Model.model"):
 model = pickle.load(open("SER-Trained-Model.model", "rb"))
 
 filename = "test.wav"
+txtFile= "read.txt"
 
 if os.path.exists(filename):
   os.remove(filename)
 
-if os.path.exists("read.txt"):
-  os.remove("read.txt")
+if os.path.exists(txtFile):
+  os.remove(txtFile)
 
 
 # record the file (start talking)
@@ -30,10 +32,10 @@ with sr.Microphone() as source:
   print("Please talk")
   audio=r.listen(source)
   try:
-    speechTxt = open('read.txt', 'w')
-    speechTxt.write(r.recognize_google(audio))
-    speechWAV=open(filename,'wb')
-    speechWAV.write(audio.get_wav_data())
+    with open(txtFile, "w") as text_file:
+      text_file.write(r.recognize_google(audio)) 
+    with open(filename, "wb") as wav_file:
+      wav_file.write(audio.get_wav_data()) 
     print("Voice Recorded Successfully!")
   except Exception as e:
     print("Error : Voice not Recorded!!! ")
@@ -42,15 +44,17 @@ with sr.Microphone() as source:
 if os.path.exists(filename) and os.path.exists("read.txt"):
   try:
     print("\nPrediciting Emotion...")
+    
+    NLP()
+
     # extract features and reshape it
     features = extract_feature(filename, mfcc=True, chroma=True, mel=True).reshape(1, -1)
     # predict
     result = model.predict(features)[0]
     # show the result
     print("\n")
-    print("Sentiment by SER : ", result.capitalize())
+    print("Sentiment by SER : ",result.capitalize())
     print("\n")
-    NLP()
     print("Emotion Predicted Successfully!")
   except Exception as e:
     print("Error")
