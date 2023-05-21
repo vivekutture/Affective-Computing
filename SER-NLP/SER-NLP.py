@@ -5,7 +5,6 @@ from NLP import NLP
 from SER import trainModel
 from utils import extract_feature
 
-print('\n\n')
 # if model is not trained train the model
 if not os.path.exists("SER-Trained-Model.model"):
   trainModel()
@@ -52,9 +51,7 @@ if os.path.exists(filename) and os.path.exists("read.txt"):
     # predict
     result = model.predict(features)[0]
     # show the result
-    print("\n")
     print("Sentiment by SER : ",result.capitalize())
-    print("\n")
     print("Emotion Predicted Successfully!")
   except Exception as e:
     print("Error")

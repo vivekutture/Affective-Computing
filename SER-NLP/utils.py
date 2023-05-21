@@ -64,7 +64,7 @@ AVAILABLE_EMOTIONS = {
     "sad",
     "neutral",
     "happy",
-    "fearful",
+    "fearful"
 }
 
 def load_data(test_size=0.2):
