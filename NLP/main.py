@@ -1,5 +1,6 @@
 from transformers import pipeline
 import speech_recognition as sr
+import logging
 def speechToText():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -13,6 +14,9 @@ def speechToText():
         except Exception as e:
             print("Error :  " + str(e))
 
+
+# Set the logging level to suppress unnecessary messages
+logging.getLogger("transformers.modeling_tf_utils").setLevel(logging.ERROR)
 speechToText()
 sentence = open('read.txt', encoding='utf-8').read()
 lower_case = sentence.lower()
