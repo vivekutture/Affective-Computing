@@ -6,11 +6,11 @@ from SER import trainModel
 from utils import extract_feature
 
 # if model is not trained train the model
-if not os.path.exists("SER-Trained-Model.model"):
+if not os.path.exists("SER-Trained-Model.pkl"):
   trainModel()
 
 # load the saved model (after training)
-model = pickle.load(open("SER-Trained-Model.model", "rb"))
+model = pickle.load(open("SER-Trained-Model.pkl", "rb"))
 
 filename = "test.wav"
 txtFile= "read.txt"
@@ -40,20 +40,33 @@ with sr.Microphone() as source:
     print("Error : Voice not Recorded!!! ")
 
 
-if os.path.exists(filename) and os.path.exists("read.txt"):
+if os.path.exists(filename) and os.path.exists(txtFile):
   try:
     print("\nPrediciting Emotion...")
     
-    NLP()
+    # By NLP
+    emotion_labels=NLP()
+    res = emotion_labels[0]['label']
+    score= emotion_labels[0]['score']
+    percentage=score*100
+    print('\nSentiment by NLP : ' + res.capitalize())
+    print('\nSentiment Percentage by NLP : {}%'.format(percentage))
 
+    # By SER
     # extract features and reshape it
     features = extract_feature(filename, mfcc=True, chroma=True, mel=True).reshape(1, -1)
     # predict
     result = model.predict(features)[0]
+    emotions=["neutral", "happy", "sad", "angry", "fearful"]
+    indx=emotions.index(result)
+    probabilities=model.predict_proba(features)[0]
+    proba=probabilities[indx]
+    percentage=proba*100
     # show the result
-    print("Sentiment by SER : ",result.capitalize())
-    print("Emotion Predicted Successfully!")
+    print("\nSentiment by SER : "+result.capitalize())
+    print("\nSentiment Percentage by SER : {}%".format(percentage))
+    print("\nEmotion Predicted Successfully!")
   except Exception as e:
-    print("Error")
+    print(e)
 
 print("\n")

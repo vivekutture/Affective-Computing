@@ -52,4 +52,4 @@ def trainModel():
 
     print("Accuracy: {:.2f}%".format(accuracy*100))
 
-    pickle.dump(model, open("SER-Trained-Model.model", "wb"))
+    pickle.dump(model, open("SER-Trained-Model.pkl", "wb"))

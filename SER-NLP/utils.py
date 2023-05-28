@@ -59,13 +59,7 @@ int2emotion = {
 }
 
 # we allow only these emotions ( feel free to tune this on your need )
-AVAILABLE_EMOTIONS = {
-    "angry",
-    "sad",
-    "neutral",
-    "happy",
-    "fearful"
-}
+AVAILABLE_EMOTIONS = {"neutral","happy","sad","angry","fearful"}
 
 def load_data(test_size=0.2):
     X, y = [], []
