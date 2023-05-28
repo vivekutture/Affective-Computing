@@ -18,21 +18,17 @@ Group Members
 
    1. Download ZIPs from given links and extract it
    
-        a) [clean-speech](https://tinyurl.com/clean-speech)
+        a) [ravdess-data](https://tinyurl.com/SER-ravdess-data)
    
-        b) [ravdess-data](https://tinyurl.com/ravdess-data)
-   
-        c) [data](https://tinyurl.com/speech-data)
+        b) [data](https://tinyurl.com/SER-data)
            
    ---
    
    2. Now, place extracted folders to there respective locatoions
-   
-        a) Place ```clean-speech``` folder inside ```Speech to Emotion/Speech Emotion Detetction``` folder
+
+        a) Place ```ravdess-data``` folder inside ```Speech to Emotion/Speech Emotion Detetction``` folder
         
-        b) Place ```ravdess-data``` folder inside ```Speech to Emotion/Speech Emotion Detetction``` folder
-        
-        c) Place ```data``` folder inside ```Speech to Emotion/Speech Emotion Recognition``` and ```SER-NLP``` folder
+        b) Place ```data``` folder inside ```Speech to Emotion/Speech Emotion Recognition``` and ```SER-NLP``` folder
                 
    ---
    
