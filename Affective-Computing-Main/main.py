@@ -4,6 +4,13 @@ import speech_recognition as sr
 from NLP import NLP
 from SER import trainModel
 from utils import extract_feature
+from FED import FacailExpressions
+
+
+FEDans=FacailExpressions()
+
+# Clearing the Screen
+os.system('cls')
 
 # if model is not trained train the model
 if not os.path.exists("SER-Trained-Model.pkl"):
@@ -39,6 +46,8 @@ with sr.Microphone() as source:
   except Exception as e:
     print("Error : Voice not Recorded!!! ")
 
+# Clearing the Screen
+os.system('cls')
 
 if os.path.exists(filename) and os.path.exists(txtFile):
   try:
@@ -49,8 +58,7 @@ if os.path.exists(filename) and os.path.exists(txtFile):
     res = emotion_labels[0]['label']
     score= emotion_labels[0]['score']
     percentage=score*100
-    print('\nSentiment by NLP : ' + res.capitalize())
-    print('\nSentiment Percentage by NLP : {}%'.format(percentage))
+
 
     # By SER
     # extract features and reshape it
@@ -61,10 +69,14 @@ if os.path.exists(filename) and os.path.exists(txtFile):
     indx=emotions.index(result)
     probabilities=model.predict_proba(features)[0]
     proba=probabilities[indx]
-    percentage=proba*100
+    per=proba*100
     # show the result
+    print('\nSentiment by Facial Expression : ' + FEDans[0].capitalize())
+    print('\nSentiment Percentage by Facial Expression : {}%'.format(FEDans[1]))
+    print('\nSentiment by NLP : ' + res.capitalize())
+    print('\nSentiment Percentage by NLP : {}%'.format(percentage))
     print("\nSentiment by SER : "+result.capitalize())
-    print("\nSentiment Percentage by SER : {}%".format(percentage))
+    print("\nSentiment Percentage by SER : {}%".format(per))
     print("\nEmotion Predicted Successfully!")
   except Exception as e:
     print(e)
